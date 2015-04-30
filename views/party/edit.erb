@@ -1,0 +1,51 @@
+<div class="container-fluid party-pg">
+
+  <div class="row">
+    <div class="col-xs-12 parties-nav-bar 
+    nav-bar">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/parties">Parties</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1 col-md-4 col-md-offset-4 col-lg-2 col-lg-offset-5 ">
+      <div class="parties-boxed-title">
+        <h2>Party</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 col-lg-4 col-lg-offset-4" id="new-food-form-div">
+      <form action="/parties/<%= @party.id%>" method="post">
+        <input type="hidden" name="_method" value="patch">
+        <p>Table Number:</p>
+        <input type= "text" name= "party[table_no]" value= "<%= @party.table_no %>"></input>
+        <p>Party Name:</p>
+        <input type= "text" name= "party[name]" value= "<%= @party.name %>"></input>
+        <p>Party Size:</p>
+        <input type= "text" name= "party[size]" value= "<%= @party.size %>"></input>
+        <p>Paid:</p>
+        <select name="party[paid]">
+          <% if @party.paid=="Yes" %> 
+            <option value="Yes" selected>Yes</option>
+          <% else %>
+            <option value="Yes">Yes</option>
+          <% end %>
+          <% if @party.paid=="No" %> 
+            <option value="No" selected>No</option>
+          <% else %>
+            <option value="No">No</option>
+          <% end %>
+        </select>
+        <p><br>
+        <input type="submit" value ="Save Changes">
+        </p>
+      </form>
+    </div>
+  </div>
+
+</div>
