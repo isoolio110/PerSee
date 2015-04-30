@@ -1,0 +1,57 @@
+<div class="container-fluid food-pg">
+
+  <div class = "row">
+    <div class="col-xs-12 foods-nav-bar 
+    nav-bar">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/foods">Foods</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1 col-md-4 col-md-offset-4 col-lg-2 col-lg-offset-5 ">
+      <div class="foods-boxed-title">
+        <h2>Food</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 col-md-4 col-md-offset-4">
+      <div class="list-title">
+        <h3> <%= @food.course %> </h3>
+      </div>
+      <table class="col-xs-12">
+          <tr>
+            <td class="col-xs-9">
+              <%= @food.name %> </a></td>
+            <td class="col-xs-3 price"> $ <%= "%.2f" % @food.price %> </td>
+          </tr>
+          <tr>
+            <td class="col-xs-9 food-description"><%= @food.description%></td>
+          </tr>
+      </table>
+    </div>
+  </div>  
+
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4 edit-delete-btns">
+      <div class="row">
+        <div class="col-xs-3 col-xs-offset-3 edit-btn">
+        <form action="/foods/<%= @food.id %>/edit">
+          <input type="submit" value="Edit Food">
+        </form>
+        </div>
+        <div class="col-xs-6 delete-btn">  
+          <form action="/foods/<%= @food.id %>" method="post">
+            <input type="hidden" name="_method" value="delete">
+            <input type="submit" value="Delete Food">
+          </form>
+        </div>  
+      </div>
+   </div>
+  </div>
+
+</div>
