@@ -15,4 +15,11 @@ class PartiesController < ApplicationController
     redirect "/parties"
   end
 
+  get '/:id' do
+    @party = Party.find(params[:id])
+    @foods = Food.all
+    @orders = Order.where(party_id: params[:id])
+    erb :'party/show'
+  end
+
 end
