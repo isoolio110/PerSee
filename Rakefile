@@ -40,4 +40,24 @@ namespace :db do
       end
   end
 
+  desc "seed database with orders"
+    task :load_order_data do
+    # for each party, give them 3 random foods
+    require_relative 'models/order'
+    require_relative 'models/party'
+    require_relative 'models/food'
+    Party.all.each do |party|
+      i = 0
+      n = 2
+      food_ids = []
+      Food.all.each do |food|
+         food_ids.push(food.id)
+      end
+      while i <= 2 do
+        Order.create({party_id: party.id, food_id:food_ids.sample, free: 0})
+        i += 1
+      end
+    end
+  end
+
 end
