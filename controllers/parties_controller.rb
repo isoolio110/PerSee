@@ -10,4 +10,9 @@ class PartiesController < ApplicationController
     erb :'party/new'
   end
 
+  post '/' do
+    Party.create(params[:party])
+    redirect "/parties"
+  end
+
 end
