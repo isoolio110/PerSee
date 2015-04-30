@@ -6,4 +6,8 @@ class PartiesController < ApplicationController
     erb :'party/index'
   end
 
+  get '/new' do
+    erb :'party/new'
+  end
+
 end
