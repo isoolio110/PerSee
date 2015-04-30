@@ -9,6 +9,8 @@ require 'csv'
 
 require './controllers/application_controller'
 require './controllers/foods_controller'
+require './controllers/parties_controller'
 
+map('/parties'){ run PartiesController }
 map('/foods'){ run FoodsController }
 map('/'){ run ApplicationController }
