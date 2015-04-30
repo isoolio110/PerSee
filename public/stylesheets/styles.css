@@ -100,6 +100,55 @@ a {
   margin: 0 10px 0 0;
 }
 
+/*foods index*/
 
+.food-pg {
+  background-color: #E5DD00;
+}
+
+.foods-boxed-title {
+  border: 4px solid #FFF946;
+  padding: 0px 30px 5px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.list-title {
+  border-bottom: 1px solid white;
+  text-align: center;
+}
+
+.food-list {
+  padding: 40px;
+}
+
+.food-list table td {
+  padding: 3px;
+}
+
+.price {
+  text-align: right;
+}
+
+.food-description {
+  font-style: italic;
+}
+
+/*foods show*/
+
+.edit-delete-btns {
+  margin-top: 4%;
+}
+
+/*foods new*/
+
+#new-food-form-div {
+  text-align: center;
+  margin-top: 2%;
+}
+
+#food-description-textarea {
+  color: #777D78;
+}
 
 
