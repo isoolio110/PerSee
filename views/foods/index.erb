@@ -1,0 +1,75 @@
+<div class="container-fluid food-pg">
+
+  <div class="row">
+    <div class="col-xs-12 foods-nav-bar 
+    nav-bar">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/parties">Parties</a></li>        
+        <li><a href="/foods/new">Add Food</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1 col-md-4 col-md-offset-4 col-lg-2 col-lg-offset-5 ">
+      <div class="foods-boxed-title">
+        <h2>Foods</h2>
+      </div>
+    </div>  
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 col-lg-4 food-list">
+      <div class="list-title">
+        <h3>Appetizers</h3>
+      </div>
+      <table class="col-xs-12">
+        <% @appetizers.each do |appetizer| %>
+          <tr>
+            <td class="col-xs-8"> <a href="/foods/<%= appetizer.id%>"> <%= appetizer.name %> </a></td>
+            <td class="col-xs-4 price"> $ <%= "%.2f" % appetizer.price %> </td>
+          </tr>
+          <tr>
+            <td class="food-description"><%= appetizer.description%></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+
+    <div class="col-xs-12 col-lg-4 food-list">
+      <div class="list-title">
+        <h3>Entrees</h3>
+      </div>  
+      <table class="col-xs-12">
+        <% @entrees.each do |entree| %>
+          <tr>
+            <td class="col-xs-8"> <a href="/foods/<%= entree.id%>"> <%= entree.name %> </a></td>
+            <td class="col-xs-4 price"> $ <%= "%.2f" % entree.price %> </td>
+          </tr> 
+          <tr>
+            <td class="food-description"><%= entree.description%></td>
+          </tr>          
+        <% end %>
+      </table>
+    </div>
+
+    <div class="col-xs-12 col-lg-4 food-list">
+      <div class="list-title"> 
+        <h3>Desserts</h3>
+      </div>
+      <table class="col-xs-12">
+        <% @desserts.each do |dessert| %>
+          <tr>
+            <td class="col-xs-8"> <a href="/foods/<%= dessert.id%>"> <%= dessert.name %> </a></td>
+            <td class="col-xs-4 price"> $ <%= "%.2f" % dessert.price %> </td>
+          </tr>
+          <tr>
+            <td class="food-description"><%= dessert.description%></td>
+          </tr>            
+        <% end %>
+      </table>
+    </div>
+  </div>
+
+</div>  
