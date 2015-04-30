@@ -1,0 +1,138 @@
+<div class="container-fluid party-pg">
+
+  <div class="row">
+    <div class="col-xs-12 parties-nav-bar 
+    nav-bar">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/parties">Parties</a></li>
+        <li><a href="/parties">Foods</a></li>        
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1 col-md-4 col-md-offset-4 col-lg-2 col-lg-offset-5 ">
+      <div class="parties-boxed-title">
+        <h2>Party</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 col-md-10 col-md-offset-1">
+      <div class="list-title">
+        <h3>Summary</h3>
+      </div>
+      <table>
+        <tr>
+          <td>Party Name</td>
+          <td>Table</td>
+          <td>Size</td>
+          <td>Paid</td>
+        </tr>
+        <tr>
+          <td><%= @party.name %></td>
+          <td><%= @party.table_no %></td>
+          <td><%= @party.size %></td>
+          <td><%= @party.paid %></td>              
+          <td>
+            <form method="link" action="/parties/<%= @party.id %>/edit">
+              <input type="submit" value="Edit">
+            </form>
+          </td> 
+          <td>
+            <form action="/parties/<%= @party.id%>" method="post">
+              <input type="hidden" name="_method" value="delete">
+              <input type="submit" value="Delete">
+            </form>       
+          </td> 
+          <td>
+            <form id="search" method="link" 
+            action="/parties/<%= @party.id %>/receipt">
+              <input type="submit" value="View Bill">
+            </form>
+          </td>
+          <td>
+            <form method="get" action="/csv">
+              <input type="submit" value="Download Bill">
+            </form>
+          </td>
+        </tr> 
+      </table>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 col-md-10 col-md-offset-1">
+      <div class="list-title">
+        <h3>Orders Placed</h3>
+      </div>
+      <table>
+        <tr>
+          <td>Course</td>
+          <td>Food</td>
+          <td>Orig. Price</td>
+          <td>Final Price</td>      
+        </tr>  
+        <% @orders.each do |order| %>
+        <tr>
+          <td> <%= order.food.course %> </td>
+          <td> <%= order.food.name %> </td>
+          <td class="price"> $<%= "%.2f" % order.food.price %> </td>
+          <td class="price"> <% if order.free == 1 %> 
+           <%= "%.2f" % "0.00" %>
+           <% else %>
+           $<%= "%.2f" % order.food.price %> 
+           <% end %>
+          </td>   
+          <td>
+          <form action="/orders/<%= order.id %>" method="post">
+            <input type="hidden" name="_method" value="patch"> 
+            <input type="hidden" name="order[free]" value="1">
+            <input type="submit" value="Mark as Free" >
+          </form>       
+          </td>
+          <td>
+          <form action="/orders" method="post">
+            <input type="hidden" name="_method" value="delete">
+            <input type="hidden" name="order[id]" value="<%= order.id %>">
+            <input type = "submit" value= "Delete">
+          </form>   
+          <td>  
+        </tr> 
+        <% end %>
+      </table>      
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 col-md-10 col-md-offset-1">
+      <div class="list-title">
+        <h3>Add Orders</h3>
+      </div>
+      <p>
+      <form action="/orders" method="post">
+        <input type="hidden" name="order[party_id]" value="<%= @party.id %>">
+        <input type= "number" name= "order[food_id]" placeholder="Enter ID" id="add-order-input"></input>
+        <input type="submit" value="Add" >
+      </form>
+      </p>
+      <table>
+        <tr>
+          <td>ID </td>   
+          <td>Course </td>
+          <td>Food Name</td>
+        </tr>   
+      <% @foods.each do |food| %>
+        <tr>
+          <td><%= food.id %></td>
+          <td><%= food.course %></td>
+          <td><%= food.name %></td>
+        </tr>
+      <% end %> 
+      </table>
+    </div>  
+  </div>
+
+</div>
