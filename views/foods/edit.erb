@@ -1,0 +1,60 @@
+<div class="container-fluid food-pg">
+
+  <div class = "row">
+    <div class="col-xs-12 foods-nav-bar 
+    nav-bar">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/foods">Foods</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1 col-md-4 col-md-offset-4 col-lg-2 col-lg-offset-5 ">
+      <div class="foods-boxed-title">
+        <h2>Food</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 col-lg-4 col-lg-offset-4" id="new-food-form-div">
+      <form action="/foods/<%= @food.id%>" method="post">
+        <input type="hidden" name="_method" value="patch">   
+        <p>Food Course:</p>
+        <select name="food[course]">
+          <% if @food.course=="Appetizer" %> 
+            <option value="Appetizer" selected>Appetizer</option>
+          <% else %>
+            <option value="Appetizer">Appetizer</option>
+          <% end %>
+          <% if @food.course=="Entree" %> 
+            <option value="Entree" selected>Entree</option>
+          <% else %>
+            <option value="Entree">Entree</option>
+          <% end %>   
+          <% if @food.course=="Dessert" %> 
+            <option value="Dessert" selected>Dessert</option>
+          <% else %>
+            <option value="Dessert">Dessert</option>
+          <% end %>
+        </select>
+
+       <p>Food Name:</p>
+        <input type= "text" name= "food[name]" value= "<%= @food.name%>"></input>
+       <p>Food Description:</p>
+        <textarea rows="5" cols="40" name="food[description]" id="food-description-textarea"><%= @food.description %>
+        </textarea>
+        <p>Food Price:</p>
+        <p>
+        <input type= "text" name= "food[price]" value= "<%= "%.2f" % @food.price%>"></input>
+        </p>
+        <p>
+        <input type="submit" value ="Save Changes">
+        </p>
+      </form>
+    </div>
+  </div>
+
+</div>  
