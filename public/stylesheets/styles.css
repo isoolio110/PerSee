@@ -151,4 +151,47 @@ a {
   color: #777D78;
 }
 
+/*parties index*/
+
+.party-pg {
+  background-color: #24CC9B;
+}
+
+.parties-boxed-title {
+  border: 4px solid #46FFC9;
+  padding: 0px 30px 5px;
+  text-align: center;
+  margin-top: 20px; 
+}
+
+.parties-list {
+  margin-top: 40px;
+}
+
+.party {
+  background-color:#40E8B7;
+  padding: 20px;
+  margin: 20px;
+}
+
+/*parties show*/
+
+.party-details {
+  background-color: red;  
+}
+.party-details-row {
+  background-color: green;
+}
+
+.party-details-first-col {
+  background-color: blue;
+}
+
+td {
+  padding: 5px;
+}
+
+#add-order-input {
+  color: #777D78;
+}
 
