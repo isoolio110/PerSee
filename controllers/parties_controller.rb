@@ -85,4 +85,10 @@ class PartiesController < ApplicationController
 
   end
 
+  patch '/:id/checkout' do
+    @party = Party.find(params[:id])
+    @party.update(params[:party])
+    redirect "/parties/#{@party.id}"
+  end
+
 end
