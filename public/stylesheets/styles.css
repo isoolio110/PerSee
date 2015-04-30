@@ -77,3 +77,29 @@ a {
     cursor: pointer;
     border:none;
 }
+
+/*nav bar*/
+
+.foods-nav-bar {
+  background-color: #FFF946;
+}
+
+.parties-nav-bar {
+  background-color: #46FFC9;
+}
+
+.nav-bar ul {
+  list-style-type: none;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin:0px;
+}
+
+.nav-bar ul li {
+  display: inline;
+  margin: 0 10px 0 0;
+}
+
+
+
+
