@@ -1,0 +1,46 @@
+<div class="container-fluid food-pg">
+
+  <div class = "row">
+    <div class="col-xs-12 foods-nav-bar 
+    nav-bar">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/foods">Foods</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1 col-md-4 col-md-offset-4 col-lg-2 col-lg-offset-5 ">
+      <div class="foods-boxed-title">
+        <h2>Food</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 col-lg-4 col-lg-offset-4" id="new-food-form-div">
+      <form action="/foods" method="post">
+        <p>Food Course:</p>
+        <select name="food[course]">
+          <option value="Appetizer">Appetizer</option>
+          <option value="Entree">Entree</option>
+          <option value="Dessert">Dessert</option>
+        </select>
+       <p>Food Name:</p>
+         <input name= "food[name]" type="text"></input>
+       <p>Food Description:</p>
+        <textarea rows="5" cols="40" name="food[description]" id="food-description-textarea">
+        </textarea>
+        <p>Food Price:</p>
+        <p>
+        <input name= "food[price]" type="text"></input>
+        </p>
+        <p>
+        <input type="submit" value ="Add New Food">
+        </p>
+      </form>
+    </div>
+  </div>
+
+</div>
