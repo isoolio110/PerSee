@@ -33,4 +33,10 @@ class PartiesController < ApplicationController
     redirect "/parties/#{party.id}"
   end
 
+  delete '/:id' do
+    Party.delete(params[:id])
+    redirect "/parties"
+  end
+
+
 end
