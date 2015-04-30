@@ -27,4 +27,10 @@ class PartiesController < ApplicationController
     erb :'party/edit'
   end
 
+  patch '/:id' do
+    party = Party.find(params[:id])
+    party.update(params[:party])
+    redirect "/parties/#{party.id}"
+  end
+
 end
