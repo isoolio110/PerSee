@@ -22,4 +22,9 @@ class PartiesController < ApplicationController
     erb :'party/show'
   end
 
+  get '/:id/edit' do
+    @party = Party.find(params[:id])
+    erb :'party/edit'
+  end
+
 end
