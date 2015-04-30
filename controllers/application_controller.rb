@@ -12,4 +12,14 @@ class ApplicationController < Sinatra::Base
     erb :index
   end
 
+  get '/csv' do
+    content_type 'application/csv'
+    attachment "receipt.csv"
+    csv_string = CSV.generate do |csv|
+      CSV.foreach("/receipt.csv") do |row|
+      csv << row
+      end
+    end
+  end
+
 end
