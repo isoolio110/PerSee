@@ -1,0 +1,36 @@
+<div class="container-fluid party-pg">
+
+  <div class="row">
+    <div class="col-xs-12 parties-nav-bar 
+    nav-bar">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/parties">Parties</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <h1>Per See</h1>
+
+  <table>
+    <% @receipt.each do |row| %>
+    <tr>  
+      <td>
+        <%= row[0] %> 
+      </td>
+      <td> 
+        <% if row[1] != nil %>
+        <%= "%.2f" % row[1].to_f %>
+        <% end %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+
+  <form action="/parties/<%=@party.id%>/checkout" method="post">
+    <input type="hidden" name="_method" value="patch">
+    <input type= "hidden" name= "party[paid]" value= "1">
+    <input type="submit" value="Mark as Paid">
+  </form>
+
+</div>  
